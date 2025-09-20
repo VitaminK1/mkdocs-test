@@ -1,0 +1,330 @@
+:root  > * {
+  --md-primary-fg-color--light: #4051B5;
+  --md-primary-fg-color--dark:  #12161b;
+}
+
+:root {
+  --md-text-font: "ONEMobilePOP";
+  --md-code-font: "Noto Mono";
+}
+
+:root {
+  /* corrected path: use the existing logo.svg under docs/assets */
+  --md-admonition-icon--card: url("../assets/logo.svg");
+}
+.md-typeset .admonition.card,
+.md-typeset details.card {
+  border-color: rgb(43, 155, 70);
+}
+.md-typeset .card > .admonition-title,
+.md-typeset .card > summary {
+  background-color: rgba(43, 155, 70, 0.1);
+}
+.md-typeset .card > .admonition-title::before,
+.md-typeset .card > summary::before {
+  background-color: rgb(43, 155, 70, 0);
+  -webkit-mask-image: var(--md-admonition-icon--card);
+          mask-image: var(--md-admonition-icon--card);
+}
+
+/* Card admonition: layout and sizing to match screenshot while preserving colors above */
+.md-typeset .admonition.card,
+.md-typeset details.card {
+  border-radius: 8px;
+  border: 2px solid rgba(255, 165, 0, 0.95); /* orange accent similar to screenshot */
+  overflow: hidden;
+  box-shadow: none;
+}
+
+.md-typeset .admonition.card > .admonition-title,
+.md-typeset details.card > summary {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background-color: rgba(255, 239, 219, 0.6); /* pale title background, keep color family */
+}
+
+.md-typeset .admonition.card > .admonition-title .admonition-icon,
+.md-typeset details.card > summary .admonition-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: 0 0 1.25rem;
+  display: inline-block;
+  margin-right: 0.25rem;
+}
+
+/* Title text styling */
+.md-typeset .admonition.card > .admonition-title .admonition-title-text,
+.md-typeset details.card > summary .admonition-title-text {
+  color: #6b2ca8; /* preserve purple heading tint seen in screenshot */
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+/* Make all admonition titles use normal font weight */
+.md-typeset .admonition > .admonition-title,
+.md-typeset details > summary,
+.md-typeset .admonition .admonition-title .admonition-title-text,
+.md-typeset details .admonition-title-text {
+  font-weight: 400;
+}
+
+/* Content area */
+.md-typeset .admonition.card > .admonition-content,
+.md-typeset details.card > .admonition-content {
+  padding: 1.25rem 1.25rem 1.5rem 1.25rem;
+  background-color: rgba(255, 250, 245, 0.95); /* pale body background */
+  color: inherit;
+  font-size: 1.15rem;
+}
+
+html .md-typeset .admonition>:last-child, html .md-typeset details>:last-child {
+  margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
+  margin-left: 0.4rem;
+  margin-right: 0.4rem;
+}
+
+.md-typeset .admonition.quote>:first-child {
+  margin-top: 0.4rem;
+  margin-bottom: 0.2rem;
+}
+
+.md-typeset .admonition, .md-typeset details {
+  margin: 0.6rem 0;
+}
+
+html .md-typeset details>:first-child {
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.md-nav__item--section>.md-nav__link,
+.md-nav__title {
+  font-weight: normal;
+}
+
+.md-typeset details.abstract {
+    border-color: #81a9bb5c;
+}
+
+/* 특정 이모지 크기 키우기 및 정렬 개선 */
+.big-emoji {
+  display: inline-block !important; /* Ensure inline alignment */
+  vertical-align: middle !important; /* Align with text */
+  margin: 2px !important; /* Remove any extra margins */
+  padding: 0 !important; /* Remove any extra padding */
+  font-size: 2.5em !important;
+  line-height: 1 !important; /* Prevent extra vertical space */
+  border-radius: 999px;
+}
+
+.small-emoji {
+  display: inline-block !important; /* Ensure inline alignment */
+  vertical-align: middle !important; /* Align with text */
+  margin: 2px !important; /* Remove any extra margins */
+  padding: 0 !important; /* Remove any extra padding */
+  font-size: 1.8em !important;
+  line-height: 1 !important; /* Prevent extra vertical space */
+  border-radius: 999px;
+}
+
+.medium-emoji {
+  display: inline-block !important; /* Ensure inline alignment */
+  vertical-align: middle !important; /* Align with text */
+  margin: 2px !important; /* Remove any extra margins */
+  padding: 0 !important; /* Remove any extra padding */
+  font-size: 2.0em !important;
+  line-height: 1 !important; /* Prevent extra vertical space */
+}
+
+/* MkDocs가 생성하는 이모지 이미지(<img>)나 SVG 자체의 정렬도 명시 */
+span.big-emoji img,
+span.big-emoji svg {
+  display: inline-block !important;    /* keep image inline and allow vertical-align */
+  vertical-align: middle !important; /* 이미지/SVG 자체의 수직 정렬 */
+  line-height: 1 !important;
+  border-radius: 999px; /* Make the image itself rounded */
+  overflow: hidden; /* Ensure content stays within the rounded border */
+}
+
+/* Mirror the same rules for small-emoji so images/SVG scale and align the same way */
+span.small-emoji img,
+span.small-emoji svg {
+  display: inline-block !important;
+  vertical-align: middle !important;
+  line-height: 1 !important;
+  border-radius: 999px;
+  overflow: hidden;
+  /* Make images respect the surrounding font-size for consistent scaling */
+  max-width: 1em !important;
+  max-height: 1em !important;
+  height: auto !important;
+}
+
+@font-face {
+  font-family: "ONEMobilePOP"; 
+  font-weight: normal; 
+  font-style: normal;
+  src: url("../assets/font/ONEMobilePOP.ttf");
+}
+
+@keyframes heart {
+  0%, 40%, 80%, 100% {
+    transform: scale(1);
+  }
+  20%, 60% {
+    transform: scale(1.15);
+  }
+}
+.heart {
+  animation: heart 1000ms infinite;
+}
+
+.video-wrapper {
+  position: relative;
+  display: block;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+}
+.video-wrapper > iframe {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Simplified responsive video helper: use directly on an iframe
+   Example: <iframe class="video" src="..." allowfullscreen></iframe> */
+.video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+
+/* Ensure pymdownx.tabbed labels are normal weight (override Material theme's bold rule)
+   Use a highly-specific selector and !important as last-resort to beat theme CSS. */
+.md-typeset .tabbed-set .tabbed-labels > label,
+.md-typeset .tabbed-set .tabbed-labels > label span {
+  font-weight: normal;
+}
+
+/* Also handle the alternate style (when labels are buttons/anchors) */
+.md-typeset .tabbed-set .tabbed-labels > input + label,
+.md-typeset .tabbed-set .tabbed-labels > input + label span {
+  font-weight: normal;
+}
+
+.nav-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+/* Image + caption styling similar to the provided screenshot */
+
+.md-typeset figure {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 4px solid rgba(189, 252, 120, 0.25); /* subtle green outline */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  line-height: 0; /* remove inline whitespace gap between image and caption without changing display */
+}
+
+.md-typeset figure img {
+  display: inline-block;
+  height: auto;
+  margin: 0;
+  max-width: 100%;
+  vertical-align: bottom; /* align image edge to remove descender gap */
+}
+
+.md-typeset figcaption {
+  display: block;
+  background-color: #493b3b; /* dark caption bar */
+  color: #bfdc7f; /* light green caption text */
+  text-align: center;
+  align-content: center;
+  padding: 0.3rem 0.6rem;
+  font-weight: 100;
+  font-size: 0.75rem;
+  font-style: normal;
+  margin: 0;
+  max-width: none;
+  height: 2rem;
+  width: auto;
+  text-overflow : ellipsis;
+}
+
+[data-md-color-scheme="slate"] .md-typeset figcaption {
+  background-color: #2e3033;
+}
+
+.md-typeset p {
+  margin: 0;
+  font-weight: 100;
+}
+
+/* Global typography: apply to readable text nodes with higher specificity so
+   we don't need !important. We scope via the presence of a theme data attribute
+   on body and specifically target common content containers while excluding
+   inline code and preformatted blocks. */
+body[data-md-color-scheme] .md-typeset:not(.md-typeset--nospacing),
+body[data-md-color-scheme] .md-content__inner .md-typeset,
+body[data-md-color-scheme] .md-content__inner > * {
+  /* Apply to normal text containers */
+  --user-line-height: 1.8;
+  --user-letter-spacing: 0.6px;
+}
+
+/* Concrete rules using the variables above for typical inline text elements */
+body[data-md-color-scheme] .md-typeset p,
+body[data-md-color-scheme] .md-typeset li,
+body[data-md-color-scheme] .md-typeset blockquote,
+body[data-md-color-scheme] .md-typeset td,
+body[data-md-color-scheme] .md-typeset th,
+body[data-md-color-scheme] .md-typeset figcaption,
+body[data-md-color-scheme] .md-typeset .admonition-content {
+  line-height: var(--user-line-height);
+  letter-spacing: var(--user-letter-spacing);
+}
+
+.md-annotation__index:after {
+  height: 2ch;
+}
+
+.md-typeset mark, .md-typeset ins.critic {
+  padding: 0.1em 0.2em;
+  background-color: #00ff8063;
+}
+
+.md-typeset__table {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.md-typeset table:not([class]) {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.md-nav__list {
+  margin-top: 0.5rem;
+  margin-bottom: 0.2rem;
+}

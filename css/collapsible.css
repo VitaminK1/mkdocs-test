@@ -1,0 +1,165 @@
+/* 헤더 접기/펼치기 스타일 */
+.collapsible-header {
+    position: relative;
+    cursor: pointer;
+    border-bottom: 1px solid var(--md-default-fg-color--lightest);
+    /* 헤더와 밑선 사이 간격을 더 줄임 */
+    padding-bottom: 0.18rem;
+    margin-bottom: 0.5rem;
+}
+
+/* hover 시 배경 박스로 강조: 패딩 유지로 레이아웃 변동 최소화 */
+.collapsible-header {
+    transition: background-color 0.18s ease, color 0.12s ease;
+    padding-left: 0.25rem; /* 소폭 패딩을 둬서 배경이 텍스트를 감쌀 때 여유를 줌 */
+}
+
+.collapsible-header:hover {
+    background-color: rgba(0,0,0,0.05); /* 라이트 모드 회색 */
+    color: inherit;
+}
+
+/* 다크 모드 hover 색상 */
+[data-md-color-scheme="slate"] .collapsible-header:hover {
+    background-color: rgba(255,255,255,0.03);
+}
+
+/* 화살표 아이콘 */
+.header-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.2rem;
+    height: 1.2rem;
+    /* 화살표가 헤더 앞에 삽입되므로 왼쪽 여백 제거하고 오른쪽 여백을 둠 */
+    margin-right: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    color: var(--md-default-fg-color--light);
+}
+
+.header-toggle:hover {
+    color: var(--md-primary-fg-color);
+}
+
+.header-toggle svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* 접힌 상태의 화살표 회전 */
+.collapsible-header.collapsed .header-toggle {
+    transform: rotate(-90deg);
+}
+
+/* 콘텐츠 섹션 */
+.collapsible-content {
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    max-height: 9999px;
+    opacity: 1;
+    margin-top: 0.5rem;
+}
+
+.collapsible-content.collapsed {
+    max-height: 0;
+    opacity: 0;
+    margin-bottom: 0;
+}
+
+/* 헤더별 들여쓰기 및 크기 조정 */
+/* 헤더 레벨별 간격: 상위 레벨일수록 더 넉넉한 간격 */
+h1.collapsible-header {
+    margin-bottom: 0.9rem;
+    padding-top: 0.28rem;
+    padding-bottom: 0.28rem;
+}
+
+h2.collapsible-header {
+    margin-bottom: 0.75rem;
+    padding-top: 0.22rem;
+    padding-bottom: 0.22rem;
+}
+
+h3.collapsible-header {
+    margin-bottom: 0.6rem;
+    padding-top: 0.18rem;
+    padding-bottom: 0.18rem;
+}
+
+h4.collapsible-header {
+    margin-bottom: 0.48rem;
+    padding-top: 0.14rem;
+    padding-bottom: 0.14rem;
+    font-weight: 100;
+}
+
+h5.collapsible-header,
+h6.collapsible-header {
+    margin-bottom: 0.38rem;
+    padding-top: 0.12rem;
+    padding-bottom: 0.12rem;
+}
+
+[data-md-color-scheme="default"] .collapsible-header {
+  border-bottom-color: var(--md-default-fg-color--darkest);
+}
+/* 다크 모드 지원 */
+[data-md-color-scheme="slate"] .collapsible-header {
+    border-bottom-color: var(--md-default-fg-color--lightest);
+}
+
+/* 접힌 헤더의 스타일 조정 */
+.collapsible-header.collapsed {
+    margin-bottom: 0.5rem;
+}
+
+/* 애니메이션 개선 */
+.collapsible-content {
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.collapsible-content.collapsed {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* 주석 및 푸터 보호: 규칙을 비우지 않고 주석으로 보존해 linter 경고를 피함 */
+/* .md-footer, .md-source-file, .md-typeset .footnote, .md-typeset .admonition, [class*="footnote"] */
+
+/* 마지막 헤더 이후의 콘텐츠는 접히지 않음 (preserved) */
+.md-content__inner > *:last-child,
+.md-typeset > *:last-child {
+    /* preserved */
+}
+
+.md-typeset ul,
+.md-typeset ol,
+.md-typeset table,
+.md-typeset blockquote {
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+}
+
+/* Ensure collapsible headers use the main text color from the theme */
+.md-typeset .collapsible-header {
+    color: var(--md-default-fg-color);
+}
+
+/* If H1 headings are still muted by the theme, explicitly set their color to the main text color */
+.md-typeset h1 {
+    color: var(--md-default-fg-color);
+}
+
+/* make higher-level headings a bit more prominent spacing-wise */
+.md-typeset h1 { margin-top: 0.6rem; margin-bottom: 0.4rem; }
+.md-typeset h2 { margin-top: 0.5rem; margin-bottom: 0.35rem; }
+.md-typeset h3 { margin-top: 0.4rem; margin-bottom: 0.3rem; }
+/* Stronger compact spacing rules inside the main content area to reduce large gaps */
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+    /* reduce top and bottom margins for compact layout */
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+}
