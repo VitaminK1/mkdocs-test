@@ -1,0 +1,236 @@
+/* Styles extracted from lore.md for sliders and small responsive tweaks */
+
+/* Refined slider styles for the sliders */
+#left-slider, #mid-slider{ -webkit-appearance:none; appearance:none; width:100%; height:10px; /* use variables for fill/unfilled colors */
+	--lore-fill: #6ff0c8; --lore-unfilled: rgba(0,0,0,0.12);
+	background: linear-gradient(90deg,var(--lore-fill) 0%, var(--lore-unfilled) 0%);
+	border-radius:999px; outline:none; transition:background .12s ease; }
+
+#left-slider::-webkit-slider-runnable-track, #mid-slider::-webkit-slider-runnable-track{ height:10px; border-radius:999px; background:var(--lore-unfilled); }
+#left-slider::-webkit-slider-thumb, #mid-slider::-webkit-slider-thumb{ -webkit-appearance:none; appearance:none; width:18px; height:18px; margin-top:-4px; border-radius:50%; background:#e8fff7; border:3px solid #052006; cursor:pointer; transition:transform .12s ease; }
+#left-slider:active::-webkit-slider-thumb, #mid-slider:active::-webkit-slider-thumb{ transform:scale(1.06); }
+#left-slider:focus::-webkit-slider-thumb, #mid-slider:focus::-webkit-slider-thumb{ box-shadow:0 0 0 8px rgba(111,240,200,0.12); }
+
+/* Firefox */
+#left-slider::-moz-range-track, #mid-slider::-moz-range-track{ height:10px; border-radius:999px; background:rgba(255,255,255,0.06); }
+#left-slider::-moz-range-thumb, #mid-slider::-moz-range-thumb{ width:18px; height:18px; border-radius:50%; background:#e8fff7; border:3px solid #052006; }
+
+/* Small responsive tweak */
+@media (max-width:900px){ #left-slider,#mid-slider{height:8px} #left-slider::-webkit-slider-thumb,#left-slider::-moz-range-thumb,#mid-slider::-webkit-slider-thumb,#mid-slider::-moz-range-thumb{width:16px;height:16px;margin-top:-4px} }
+
+/* Reusable layout classes for lore cards (preserve current look) */
+.lore-card { flex:1; min-width:300px; padding:20px; border-radius:10px; border:1px solid rgba(255,255,255,0.03); background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent); }
+.lore-header { display:flex; gap:12px; align-items:center; }
+.lore-avatar { width:64px; height:64px; border-radius:8px; object-fit:cover; display:block; margin:auto 0; }
+.lore-card { overflow-wrap: break-word; }
+
+/* Grid container: align cards in a single row when there's enough space,
+	 collapse to stacked blocks on smaller screens (mobile-first friendly). */
+.lore-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 20px;
+	align-items: start;
+}
+
+/* For very wide screens show cards centered in one row with max width */
+@media (min-width: 1400px) {
+	.lore-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		max-width: 1200px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+.lore-subtitle { color:#b7d5c7; margin-top: 0.2rem; }
+.lore-title { font-size:1.25rem; margin-bottom: 0.3rem;color:#e8fff7; }
+.lore-level-box { width:50px; text-align:center; }
+.lore-stat-row { margin-top:8px; margin-bottom: 6px; color:#9ad8b7; }
+.lore-desc { margin-top:12px; color:#e6f7fb; line-height:1.3rem !important;}
+.lore-slider-wrapper { margin-top:12px; display:flex; align-items:center; margin-bottom: 4px;gap:12px }
+.lore-number-highlight {color:#10b981}
+/* Light mode overrides (Material for MkDocs uses data-md-color-scheme="default") */
+[data-md-color-scheme="default"] .lore-card {
+	background: #ffffff;
+	border: 1px solid rgba(2,6,6,0.06);
+}
+[data-md-color-scheme="default"] .lore-title { color:#052006 }
+[data-md-color-scheme="default"] .lore-subtitle { color:#375a43 }
+[data-md-color-scheme="default"] .lore-desc { color:#0b2b2a }
+[data-md-color-scheme="default"] .lore-stat-row, [data-md-color-scheme="default"] .lore-stat-small { color:#585858 }
+[data-md-color-scheme="default"] .lore-number-highlight { color:#023d29 }
+[data-md-color-scheme="default"] .lore-lvl { color:#052006 }
+
+/* Slider thumb border should contrast on light background */
+[data-md-color-scheme="default"] #left-slider::-webkit-slider-thumb, [data-md-color-scheme="default"] #mid-slider::-webkit-slider-thumb{
+	border:3px solid #e6f7f0;
+	background:#052006;
+}
+[data-md-color-scheme="default"] #left-slider::-moz-range-thumb, [data-md-color-scheme="default"] #mid-slider::-moz-range-thumb{
+	border:3px solid #e6f7f0;
+	background:#052006;
+}
+
+/* stronger unfilled track for light mode */
+[data-md-color-scheme="default"] #left-slider, [data-md-color-scheme="default"] #mid-slider{
+	--lore-unfilled: rgba(0,0,0,0.18);
+	--lore-fill: #007a4f;
+}
+
+/* Stat card (matching attached design) */
+.stat-card{
+	border-radius:10px;
+	border:2px solid #bfdfc9; /* soft green border */
+	background: linear-gradient(180deg,#eaf8ed,#f9fdf9); /* pale green panel */
+	padding:14px;
+	display:block;
+	max-width:820px;
+	margin: 0 auto;
+}
+.stat-header{display:flex;gap:12px;align-items:center}
+.stat-avatar-wrap{position:relative;flex:0 0 94px}
+.stat-avatar{width:94px;height:94px;border-radius:8px;display:block;object-fit:cover;background:#f7e9ff;border:3px solid rgba(11,64,74,0.06);margin-left:10px;}
+.stat-meta{flex:1;display:flex;flex-direction:column;justify-content:center}
+.stat-name{margin:2px 0 0 0;font-size:1.125rem;color:#083826}
+.stat-pills{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:10px;justify-items:center;align-items:center}
+.pill{background:rgba(52,168,83,0.12);color:#1b5e30;padding:4px 8px;border-radius:10px;font-size:0.9rem;border:1px solid rgba(52,168,83,0.18);display:inline-block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* top icon row like screenshot */
+.stat-icons{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;align-items:center;justify-items:center;margin-bottom:8px}
+.icon-pill{width:64px;height:64px;border-radius:50%;background:linear-gradient(180deg,#ffffff,#f3f9f4);display:flex;align-items:center;justify-content:center;border:1px solid rgba(43,182,115,0.12);box-shadow:0 6px 14px rgba(10,20,10,0.06);transition:transform .12s ease,box-shadow .12s ease}
+.icon-pill img{width:40px;height:40px;object-fit:contain}
+.icon-pill:hover{transform:translateY(-4px);}
+
+.stat-body{margin-top:14px}
+.stat-section-title{margin:0 0 10px 0;color:#215b36;font-size:1rem;}
+.stat-table{display:grid;grid-template-columns:1fr 1fr;gap:8px 18px;margin-top: 10px;}
+.stat-row{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;border-radius:6px;background:rgba(255,255,255,0.95);box-shadow:0 1px 0 rgba(0,0,0,0.03)}
+.stat-key{color:#2f7a52; display:flex; align-items:center; gap:8px}
+/* Ensure images wrapped by GLightbox anchors align correctly */
+.stat-key .glightbox{display:inline-flex;align-items:center}
+.stat-key .glightbox img{display:block;max-width:none}
+.stat-key img{display:block}
+.stat-value{color:#052006;}
+
+.stat-bars{display:flex;gap:14px;margin-top:18px;align-items:flex-end}
+.bar-group{display:flex;gap:6px;align-items:center}
+.bar{width:14px;height:10px;border-radius:4px}
+.color-pink{background:#ff7fb3}
+.color-blue{background:#5fb3ff}
+.color-orange{background:#ffb25f}
+
+/* Small viewport adjustments — keep a strict 6x2 layout by scaling items instead of wrapping */
+@media (max-width:900px){
+	.stat-card{padding:8px}
+	.stat-avatar{width:72px;height:72px}
+	.stat-table{grid-template-columns:1fr}
+	/* Force 6 columns; make columns flexible so they share the available width evenly */
+	.stat-icons,
+	.stat-pills{
+		display:grid;
+		grid-template-columns:repeat(6,minmax(0,1fr));
+		gap:6px 6px;
+		justify-items:center;
+		align-items:center;
+		width:100%;
+	}
+	/* Allow the flex child to shrink properly so the grid gets the available width
+	   and columns don't collapse/overflow - prevents the last pill from disappearing */
+	.stat-meta{ min-width:0; }
+	.stat-icons, .stat-pills{ width:100%; box-sizing:border-box; }
+	/* scale the circular icon pills to fit narrow widths */
+	/* Keep each pill circular: use a max-size relative to the grid cell and force a square via aspect-ratio.
+	   Center the circle inside its grid cell so columns remain evenly distributed. */
+	.icon-pill{
+		width: min(64px, 100%); /* don't exceed 64px, but allow it to shrink */
+		max-width:64px;
+		aspect-ratio: 1/1;      /* always square */
+		display:flex;
+		align-items:center;
+		justify-content:center;
+		border-radius:50%;
+		padding:0;
+		box-sizing:border-box;
+		background-clip: padding-box;
+	}
+	.icon-pill img{ width:52%; height:auto; max-width:100%; display:block; margin:0 auto }
+
+	/* Reduce avatar wrap flex-basis so the meta area has enough room for 6 columns */
+	.stat-avatar-wrap{ flex: 0 0 72px }
+
+	/* Ensure icon images are centered inside the circular pill and won't shift */
+	.icon-pill img{ display:block; margin:0 auto; max-height:80%; }
+
+	/* make textual pills fit their grid cell and wrap inside the cell when needed */
+	.pill{
+		display:block;
+		width:100%;
+		max-width:100%;
+		font-size: clamp(0.62rem, 1.6vw, 0.9rem);
+		padding:4px 6px;
+		white-space:normal;
+		text-align:center;
+		box-sizing:border-box;
+		overflow:visible; /* prevent clipping that can hide content */
+		min-width:0; /* allow the pill to shrink inside its grid cell */
+	}
+}
+
+/* Extra-small screens: tighten spacing but keep 6 columns */
+@media (max-width:420px){
+	.stat-card{padding:6px}
+	.stat-avatar{width:64px;height:64px}
+	.stat-icons,
+	.stat-pills{
+		grid-template-columns:repeat(6,minmax(0,1fr));
+		gap:4px 4px;
+		width:100%;
+		box-sizing:border-box;
+		overflow:visible;
+	}
+	.stat-meta{ min-width:0; }
+	/* make icon-pills constrained and always circular at the smallest sizes */
+	.icon-pill{ width: min(52px, 100%); max-width:52px; aspect-ratio:1/1; min-width:24px; min-height:24px }
+	.icon-pill img{ width:48%; display:block; margin:0 auto; max-height:78%; }
+	.stat-avatar-wrap{ flex: 0 0 64px }
+	.pill{ font-size: clamp(0.56rem, 2.0vw, 0.78rem); padding:3px 4px }
+}
+
+/* GLightbox sizing fixes: keep images at natural aspect ratio and prevent full-viewport stretching */
+.glightbox-container .gslide-image,
+.glightbox-container .gslide-media {
+	display:flex;
+	align-items:center;
+	justify-content:center;
+}
+.glightbox-container .gslide-image img,
+.glightbox-container .gslide-media img {
+	width:auto !important;
+	height:auto !important;
+	max-width:95vw !important;   /* don't overflow horizontally */
+	max-height:80vh !important;  /* leave room for controls/description */
+	object-fit:contain !important;
+}
+
+/* When GLightbox uses a inner container with fixed height, ensure content centers instead of stretching */
+.glightbox {
+	align-items:center !important;
+	justify-content:center !important;
+	line-height: 0.5 !important;
+}
+
+/* Slate color-scheme overrides aligned with battle-panel palette */
+[data-md-color-scheme="slate"] .stat-card{
+	background: #1c1f21; /* match .battle-panel */
+	border: 3px solid #6aa04a; /* same accent as battle-panel */
+	color: #e6f7db;
+}
+[data-md-color-scheme="slate"] .stat-avatar{ background: #222427; border: 2px solid #4e8f5a }
+[data-md-color-scheme="slate"] .stat-row{ background: #222427; box-shadow: none }
+[data-md-color-scheme="slate"] .stat-key{ color: #cfe7c8 }
+[data-md-color-scheme="slate"] .stat-value{ color: #ffe79a }
+[data-md-color-scheme="slate"] .pill{ background: rgba(52,168,83,0.06); color: #cfe7c8; border:0px solid #4e8f5a }
+[data-md-color-scheme="slate"] .icon-pill{ background: #222427; border:0px solid #4e8f5a }
+[data-md-color-scheme="slate"] .stat-icons{ background: transparent }
+

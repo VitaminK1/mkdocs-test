@@ -1,0 +1,72 @@
+/* -----------------------------
+   공통 배지 스타일
+----------------------------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;                     /* 아이콘과 텍스트 간격 축소 */
+  padding: 5px 10px;             /* 패딩 줄임 */
+  font-size: 0.8rem;           /* 폰트 크기 약간 축소 */
+  line-height: 1;
+  border-radius: 6px;           /* 살짝 더 컴팩트한 둥근 모서리 */
+  user-select: none;
+  cursor: default;
+
+  /* Material 테마 색상 변수 활용 */
+  background-color: var(--md-code-bg-color);
+  color: var(--md-default-fg-color);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+
+  /* 입체감 완전 제거 */
+  box-shadow: none !important;
+
+  /* 배지 간 간격 */
+  margin-right: 6px; /* 배지 사이 간격을 살짝 축소 */
+}
+
+/* 마지막 배지 오른쪽 여백 제거 */
+.badge:last-child {
+  margin-right: 0;
+}
+
+/* 아이콘 스타일 */
+.badge-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95em;   /* 아이콘 크기 살짝 축소 */
+  line-height: 1;
+}
+
+/* -----------------------------
+   버전 배지 - Material 포인트 색상 사용
+----------------------------- */
+.badge-version {
+  background-color: color-mix(in srgb, var(--md-primary-fg-color) 10%, var(--md-default-bg-color));
+  color: var(--md-primary-fg-color);
+  border-color: color-mix(in srgb, var(--md-primary-fg-color) 30%, transparent);
+}
+.badge-version:hover {
+  background-color: color-mix(in srgb, var(--md-primary-fg-color) 20%, var(--md-default-bg-color));
+}
+
+/* -----------------------------
+   확장 배지 - 강조 색상 사용
+----------------------------- */
+.badge-ext {
+  background-color: color-mix(in srgb, var(--md-accent-fg-color) 10%, var(--md-default-bg-color));
+  color: var(--md-accent-fg-color);
+  border-color: color-mix(in srgb, var(--md-accent-fg-color) 30%, transparent);
+}
+.badge-ext:hover {
+  background-color: color-mix(in srgb, var(--md-accent-fg-color) 20%, var(--md-default-bg-color));
+}
+
+/* -----------------------------
+   다크 모드 최적화
+----------------------------- */
+[data-md-color-scheme="slate"] .badge {
+  background-color: var(--md-code-bg-color);
+  color: var(--md-default-fg-color);
+  border-color: rgba(255, 255, 255, 0.1);
+}

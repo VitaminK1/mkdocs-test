@@ -1,0 +1,219 @@
+/* Page-specific styles for docs/info/relationship.md */
+:root{ --rk-green:#1fb28a; --rk-brown:#8f5b39; --rk-beige:#f7efe6; --rk-wood:#ddc3a6; --rk-grain-intensity:0.02; }
+
+.rk-book{ display:flex; gap:26px; align-items:stretch; padding:28px; box-sizing:border-box; background: linear-gradient(180deg,#f6efe4 0%, #fbf6ee 50%, #f8f3ea 100%); border-radius:18px; padding-left:36px; padding-right:36px; box-shadow: 0 8px 30px rgba(25,30,20,0.12), inset 0 40px 80px rgba(255,255,255,0.04); }
+
+/* grain overlay */
+.rk-book{ background-image: radial-gradient(rgba(255,255,255,var(--rk-grain-intensity)) 1px, transparent 1px), repeating-linear-gradient(90deg, rgba(0,0,0,calc(var(--rk-grain-intensity)/2)) 0 1px, transparent 1px 3px), linear-gradient(180deg,#f6efe4 0%, #fbf6ee 50%, #f8f3ea 100%); background-blend-mode: overlay, multiply, normal; }
+
+/* crease near inner fold (faint) */
+.rk-book::before{ content:''; position:absolute; left:50%; top:10%; transform:translateX(-50%); width:2px; height:80%; background:linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.06) 50%, rgba(0,0,0,0.02)); border-radius:2px; pointer-events:none; filter:blur(1px); opacity:0.6; }
+
+/* panels */
+.rk-left{ width:540px; position:relative; border-radius:12px; background: linear-gradient(180deg,#ffffff,#fdfaf6); padding:18px; display:flex; flex-direction:column; box-shadow: 0 12px 30px rgba(20,30,20,0.08), inset -18px 0 32px -28px rgba(0,0,0,0.08); border:6px solid rgba(200,170,140,0.06); }
+.rk-right{ width:700px; background: linear-gradient(180deg,#fffaf2,#f7efe6); border-radius:12px; padding:28px 26px; display:flex; flex-direction:column; box-shadow: 0 10px 26px rgba(20,30,20,0.06), inset 18px 0 32px -28px rgba(0,0,0,0.03); border:6px solid rgba(200,170,140,0.04); }
+
+/* framed inner page on left */
+.rk-frame{ background:#fff; border-radius:10px; padding:18px; height:100%; box-shadow: 0 6px 0 rgba(20,120,100,0.06); border:8px solid rgba(21,150,120,0.12); position:relative; overflow:hidden; }
+
+/* top name block on left: subtitle above name */
+.rk-left-head{ display:flex; flex-direction:column; align-items:flex-start; gap:0px; margin-bottom:4px; }
+.rk-left-sub{ font-size:22px; color:#b07b64; margin:10px 0 0 0; opacity:0.95; line-height:0.8em; }
+.rk-left-name{ font-size:40px; color:var(--rk-brown); letter-spacing:1px; margin:0; }
+
+/* small circular badges next to title */
+.rk-badges{ position:absolute; right:18px; top:18px; display:flex; gap:8px; }
+.rk-badge{ width:36px; height:36px; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:14px; box-shadow:0 2px 6px rgba(0,0,0,0.12); }
+.rk-badge.yellow{ background:#f6b63a; }
+.rk-badge.purple{ background:#8b68f0; }
+
+/* portrait & ghost */
+.rk-portrait-wrap{ position:relative; width:100%; height:420px; display:flex; align-items:center; justify-content:center; }
+.rk-bg-ghost-img{ position:absolute; left:8px; top:12px; width:400px; height:400px; opacity:0.06; object-fit:contain; pointer-events:none; z-index:1; }
+.rk-portrait-img{ position:relative; z-index:3; width:340px; height:400px; object-fit:contain; }
+
+/* right panel header */
+.rk-right-title{ display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
+.rk-head-large{ font-size:24px; color:var(--rk-brown); margin-bottom:6px; }
+.rk-head-line{ width:100%; height:2px; background:#d6b07a; border-radius:2px; margin:8px 0 14px 0; box-shadow:none; }
+.rk-desc{ color:#7f6b57; line-height:1.6; font-size:15px; max-width:520px; }
+
+/* TMI row */
+.rk-tmi-row{ position:relative; display:flex; align-items:center; gap:12px; margin-top:10px; margin-top:auto; padding:6px 0; }
+
+/* Explicit separator element between the pill and the right content */
+.rk-tmi-sep{ flex:1 1 auto; height:2px; background:#d6b07a; border-radius:2px; align-self:center; z-index:2; }
+
+.rk-tmi-pill{ position:relative; z-index:3; display:inline-flex; align-items:center; gap:10px; padding:8px 12px; background:var(--rk-brown); border-radius:18px; border:1px solid rgba(0,0,0,0.06); color:#fff; }
+.rk-tmi-right{ position:relative; z-index:3; display:flex; align-items:center; gap:8px; color:#8b7660; margin-left: 0; margin-right: 0; }
+.rk-tmi-text{ font-size:15px; color:#8b7660; margin-left:6px; }
+.rk-mini-avatar{ width:42px; height:42px; border-radius:6px; border:3px solid #fff; box-shadow:0 4px 6px rgba(0,0,0,0.08); overflow:hidden; display:inline-block; }
+.rk-mini-avatar-img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+/* info boxes: header strip + body */
+.rk-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-top:18px; }
+.rk-box{ background:linear-gradient(180deg,#fffefc,#fbf7f1); border-radius:10px; overflow:hidden; box-shadow:0 4px 10px rgba(10,10,10,0.04); border:1px solid rgba(150,110,80,0.08); }
+.rk-box-head{ background:#cfa97b; padding:8px 12px; color:#fff; font-size:13px; }
+.rk-box-body{ padding:14px; color:#6b5846; font-size:14px; }
+
+@media (max-width:1200px){ .rk-book{flex-direction:column} .rk-left,.rk-right{width:auto} }
+
+/* Tighter mobile adjustments: make the left panel fit comfortably on narrow viewports */
+@media (max-width:480px){
+    .rk-left{ width:100% !important; max-width:100%; padding:12px !important; box-sizing:border-box; border-width:4px !important; margin:0 auto; }
+    .rk-frame{ padding:12px !important; border-width:6px !important }
+    .rk-portrait-img{ width:220px; height:260px }
+    .rk-left-sub{ font-size:18px }
+    .rk-left-name{ font-size:28px }
+    .rk-badges{ right:12px; top:12px }
+    /* reduce internal paddings that caused overflow */
+    .rk-box-body{ padding:10px }
+    .rk-portrait-wrap{ position:relative; width:100%; height:200px; }
+    /* Ensure the left header stays visible above portrait artwork on narrow viewports. */
+     /* Keep the left header positioned normally but ensure it does NOT overlap the site nav.
+         Material's navigation uses a high z-index; lower this element so nav remains on top. */
+      /* Avoid forcing the left header into a higher stacking context than the site nav.
+          Keep the header in normal flow so it doesn't create a layout regression. */
+      .rk-left-head{ position:static; z-index: auto; }
+
+      /* Only adjust the drawer overlay and the primary nav stacking so the mobile
+          navigation overlays page content. Do NOT change header/sidebar positioning
+          (this caused layout regressions). */
+      .md-overlay { position:fixed; z-index:99999 !important; }
+      .md-nav.md-nav--primary, .md-sidebar.md-sidebar--primary { z-index:99999; }
+
+    /* Reduce portrait stacking and hide the large ghost art which was overlapping the header */
+    .rk-portrait-img{ z-index:2 !important; }
+
+    .rk-bg-ghost-img{ display:none !important; }
+}
+
+/* Duplicate of prefs-table styles so a second table can use different class names
+   while keeping identical appearance. The alternate classes are:
+   - .prefs-table-alt-wrap
+   - .prefs-table-alt
+   - uses the same child selectors as .prefs-table
+*/
+.prefs-table-alt-wrap{ max-width:760px; margin:18px auto; overflow:auto; -webkit-overflow-scrolling:touch }
+.prefs-table-alt{ width:100%; border-collapse:collapse; text-align:center; font-size:0.95rem }
+.prefs-table-alt thead th{ background:#c1ffada2; padding:10px; color:#334d36; vertical-align:middle; text-align:center }
+.prefs-table-alt thead th:first-child{ text-align:center }
+.prefs-table-alt tbody td{ border:1px solid #e6efe2; padding:12px; background:#ffffff; vertical-align:middle; text-align:center }
+.prefs-table-alt tbody tr td:first-child{ background:transparent; border: none; }
+.prefs-table-alt .pref-icon-cell{ width:64px; margin: auto 0; min-width:0; max-width:130px; padding:8px 10px; text-align:center; display:table-cell; vertical-align:middle }
+.prefs-table-alt thead th:first-child{ width:180px; min-width:120px }
+.prefs-table-alt tbody td:first-child{ width:64px; min-width:0; text-align:left }
+.prefs-table-alt .pref-icon-cell span{ display:flex; align-items:center; justify-content:center; vertical-align:middle; height:100%; /* allow icons to wrap onto multiple rows with spacing */
+    white-space:normal; overflow:visible; text-overflow:clip; flex:0 1 auto; min-width:0; font-size: clamp(0.55rem, 1.0vw, 0.95rem); gap:8px; flex-wrap:wrap; row-gap:10px; }
+.prefs-table-alt .pref-icon-cell .pref-icon-mini{ display:inline-flex; align-items:center; justify-content:center; vertical-align:middle; margin-right:8px }
+/* reuse existing .pref-icon-mini sizing rules already present in CSS */
+.prefs-table-alt td > .pref-icon{ display:flex; width:64px; height:64px; flex:0 0 64px; margin:0; border-radius:12px; align-items:center; justify-content:center; position:relative; background:linear-gradient(180deg,#fff,#f3f9f4); border:1px solid rgba(43,182,115,0.06) }
+
+/* make the cell that holds icons a wrapping flex container so icons can break
+    onto a second line with consistent spacing between rows */
+.prefs-table-alt tbody td:not(:first-child){ display:flex; align-items:center; justify-content:flex-start; gap:8px; flex-wrap:wrap; row-gap:10px; /* ensure min height matches icon size for each wrapper */ }
+
+/* set min-height on td to match the icon sizes so rows stay visually consistent */
+.pref-size-sm .prefs-table-alt tbody td:not(:first-child){ min-height: calc(var(--pref-icon-size-sm) + 12px); }
+.pref-size-md .prefs-table-alt tbody td:not(:first-child){ min-height: calc(var(--pref-icon-size-md) + 12px); }
+.pref-size-lg .prefs-table-alt tbody td:not(:first-child){ min-height: calc(var(--pref-icon-size-lg) + 12px); }
+
+/* keep the label cell aligned to the same height as the icons */
+.pref-size-sm .prefs-table-alt .pref-icon-cell{ min-height: calc(var(--pref-icon-size-sm) + 12px); }
+.pref-size-md .prefs-table-alt .pref-icon-cell{ min-height: calc(var(--pref-icon-size-md) + 12px); }
+.pref-size-lg .prefs-table-alt .pref-icon-cell{ min-height: calc(var(--pref-icon-size-lg) + 12px); }
+.prefs-table-alt td > .pref-icon img.frame{ width:100%; height:100%; display:block; object-fit:contain }
+.prefs-table-alt td > .pref-icon img.overlay{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:44px; height:44px; }
+.prefs-table-alt tbody tr:nth-child(1) td:first-child{ background:#ffa4a4 }
+.prefs-table-alt tbody tr:nth-child(2) td:first-child{ background:#ffce74 }
+.prefs-table-alt tbody tr:nth-child(3) td:first-child{ background:#fffd92 }
+.prefs-table-alt tbody tr:nth-child(4) td:first-child{ background:#7ec47b }
+.prefs-table-alt tbody tr:nth-child(5) td:first-child{ background:#097000 }
+@media (max-width:600px){
+    .prefs-table-alt thead th{ font-size:0.85rem; padding:8px }
+    .prefs-table-alt tbody td{ padding:8px }
+}
+@media (max-width:520px){
+    .prefs-table-alt .pref-icon-cell{ gap:6px; padding:6px; min-width:0 }
+    .pref-icon-mini{ width:32px; flex:0 0 32px; min-width:32px; min-height:32px; max-width:32px; max-height:32px }
+    .pref-icon-mini img{ width:18px; flex:0 0 18px }
+    .prefs-table-alt .pref-icon-cell span{ white-space:nowrap; font-size: clamp(0.55rem, 0.9vw, 0.8rem); overflow:visible; text-overflow:clip }
+}
+
+/* Compact prefs-table-alt on small screens: make the header/label column ~60px and
+   slightly reduce the icon sizes so rows fit without horizontal scroll. */
+@media (max-width:520px){
+    .prefs-table-alt thead th:first-child{ width:60px; min-width:60px }
+    .prefs-table-alt .pref-icon-cell{ width:60px; padding:6px; gap:6px }
+    .prefs-table-alt td > .pref-icon{ width:56px; height:56px; flex:0 0 56px }
+    .prefs-table-alt .pref-icon-cell .pref-icon-mini{ width:28px; flex:0 0 28px }
+    .prefs-table-alt .pref-icon-cell span{ white-space:normal; font-size: clamp(0.5rem, 0.9vw, 0.78rem) }
+}
+
+/* Ensure the original prefs-table gets the same wrapping & vertical spacing on small screens */
+@media (max-width:520px){
+    .prefs-table tbody td:not(:first-child),
+    table.prefs-table td:not(:first-child){
+        align-items:center;
+        justify-content:flex-start;
+        gap:8px;
+        flex-wrap:wrap;
+        row-gap:12px; /* bigger vertical gap for mobile */
+    }
+    .prefs-table td > .pref-icon, table.prefs-table td > .pref-icon{ margin:5px; }
+    .prefs-table .pref-icon-cell span, table.prefs-table .pref-icon-cell span{ white-space:normal; gap:8px; flex-wrap:wrap; row-gap:12px }
+    /* give label cell a matching min-height so rows align */
+    .prefs-table .pref-icon-cell, table.prefs-table .pref-icon-cell{ min-height: calc(var(--pref-icon-size-sm) + 12px) }
+}
+
+/* Slate overrides for the alternate table */
+[data-md-color-scheme="slate"] .prefs-table-alt thead th{ background:#21302a; color:#e6f7db }
+[data-md-color-scheme="slate"] .prefs-table-alt thead th .th-badge{ stroke: rgba(78,143,90,0.12) }
+[data-md-color-scheme="slate"] .prefs-table-alt tbody td{ background:#181a1b; border-color: rgba(78,143,90,0.04); color:#e6f7db }
+[data-md-color-scheme="slate"] .prefs-table-alt tbody td:first-child span{ color: #072a17 }
+
+/* Adjustable icon sizing helpers for the alternate table.
+   Use .pref-size-sm / .pref-size-md / .pref-size-lg on the table wrapper
+   to control container and overlay sizes. Defaults are set for md. */
+:root{
+    --pref-icon-size-sm:48px;
+    --pref-icon-size-md:56px;
+    --pref-icon-size-lg:64px;
+    --pref-overlay-size-sm:20px;
+    --pref-overlay-size-md:34px;
+    --pref-overlay-size-lg:40px;
+}
+.pref-size-sm .prefs-table-alt td > .pref-icon{ width:var(--pref-icon-size-sm); height:var(--pref-icon-size-sm); flex:0 0 var(--pref-icon-size-sm); }
+.pref-size-md .prefs-table-alt td > .pref-icon{ width:var(--pref-icon-size-md); height:var(--pref-icon-size-md); flex:0 0 var(--pref-icon-size-md); }
+.pref-size-lg .prefs-table-alt td > .pref-icon{ width:var(--pref-icon-size-lg); height:var(--pref-icon-size-lg); flex:0 0 var(--pref-icon-size-lg); }
+.pref-size-sm .prefs-table-alt td > .pref-icon img.overlay{ width:var(--pref-overlay-size-sm); height:var(--pref-overlay-size-sm); }
+.pref-size-md .prefs-table-alt td > .pref-icon img.overlay{ width:var(--pref-overlay-size-md); height:var(--pref-overlay-size-md); }
+.pref-size-lg .prefs-table-alt td > .pref-icon img.overlay{ width:var(--pref-overlay-size-lg); height:var(--pref-overlay-size-lg); }
+
+/* Circular avatar appearance to match screenshot: rounded, subtle stroke, and gentle shadow */
+.prefs-table-alt td > .pref-icon{
+    border-radius:999px;
+    overflow:hidden;
+    /* softer shadow, slightly larger blur to match screenshot */
+    box-shadow: 0 6px 16px rgba(17,18,20,0.12), inset 0 2px 6px rgba(255,255,255,0.03);
+    /* warmer inner ring/border (slightly thicker) */
+    border: 2px solid rgba(240,220,200,0.35); /* warm tan */
+    background: linear-gradient(180deg,#fff,#fbfbfa);
+    padding:6px; /* inset the frame slightly */
+}
+.prefs-table-alt td > .pref-icon img.frame{ width:100%; height:100%; display:block; object-fit:cover; border-radius:999px }
+.prefs-table-alt td > .pref-icon img.overlay{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); object-fit:cover }
+
+/* small helper to make overlay images circular when desired */
+.prefs-table-alt td > .pref-icon img.overlay.circle{ border-radius:999px }
+
+/* Per-icon utilities to override size on individual icons */
+.pref-circle-sm{ width:var(--pref-icon-size-sm) !important; height:var(--pref-icon-size-sm) !important; flex:0 0 var(--pref-icon-size-sm) !important }
+.pref-circle-md{ width:var(--pref-icon-size-md) !important; height:var(--pref-icon-size-md) !important; flex:0 0 var(--pref-icon-size-md) !important }
+.pref-circle-lg{ width:var(--pref-icon-size-lg) !important; height:var(--pref-icon-size-lg) !important; flex:0 0 var(--pref-icon-size-lg) !important }
+.pref-circle-sm img.frame{ width:var(--pref-icon-size-sm) !important; height:var(--pref-icon-size-sm) !important }
+.pref-circle-md img.frame{ width:var(--pref-icon-size-md) !important; height:var(--pref-icon-size-md) !important }
+.pref-circle-lg img.frame{ width:var(--pref-icon-size-lg) !important; height:var(--pref-icon-size-lg) !important }
+.pref-circle-sm img.overlay{ width:var(--pref-overlay-size-sm) !important; height:var(--pref-overlay-size-sm) !important }
+.pref-circle-md img.overlay{ width:var(--pref-overlay-size-md) !important; height:var(--pref-overlay-size-md) !important }
+.pref-circle-lg img.overlay{ width:var(--pref-overlay-size-lg) !important; height:var(--pref-overlay-size-lg) !important }

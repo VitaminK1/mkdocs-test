@@ -1,0 +1,228 @@
+/* 기본(라이트) 모드 스타일 */
+.custom-box-title {
+  background-color: #f7b4b4;
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.tag-box {
+  display: inline-block;      /* flex로 세로 중앙 정렬 */
+  vertical-align: middle;
+  align-items: center;        /* 텍스트 세로 중앙 맞춤 */
+  padding: 6px 16px;          /* 좌우 여백 조금 더 */
+  border-radius: 9999px;      /* pill 형태 강제 */
+  font-size: 14px;
+  line-height: 1.4;           /* 줄 간격 지정 */
+  margin: 4px 4px;          /* 태그 간격 */
+}
+
+/* 라이트 모드 전용 */
+[data-md-color-scheme="default"] .tag-box {
+  background-color: #f0f0f0;
+  color: #000000;
+}
+
+/* 다크 모드 전용 */
+[data-md-color-scheme="slate"] .tag-box {
+  background-color: #2f3338;
+  color: #000000;
+}
+
+/* 라이트 모드일 때 */
+[data-md-color-scheme="default"] .tag-box[data-sado="ashur"] {
+  background-color: #f7b4b4;
+}
+
+/* 다크 모드일 때 */
+[data-md-color-scheme="slate"] .tag-box[data-sado="ashur"] {
+  background-color: #f7b4b4;
+}
+
+.tag-box[data-sado="erpin"] {
+  background-color: #ee9e7d;
+}
+
+.tag-box[data-sado="empty"] {
+  background-color: #fbad25;
+}
+
+.tag-box[data-sado="unnamed"] {
+  background-color: #fbad25;
+}
+
+.tag-box[data-sado="marie"] {
+  background-color: #E7BBBB;
+}
+
+.tag-box[data-sado="sylla"] {
+  background-color: #c9dbba;
+}
+
+.tag-box[data-sado="elena"] {
+  background-color: #da9798;
+}
+
+.tag-box[data-sado="ner"] {
+  background-color: #827591;
+}
+
+.tag-box[data-sado="velvet"] {
+  background-color: #5c4f60;
+}
+
+.tag-box[data-sado="sist"] {
+  background-color: #BD8CB7;
+}
+
+.tag-box[data-sado="rohne"] {
+  background-color: #C1B4B7;
+}
+
+.tag-box[data-sado="butter"] {
+  background-color: #edc474;
+}
+
+.tag-box[data-sado="speaki"] {
+  background-color: #71566C;
+}
+
+.tag-box[data-sado="opal"] {
+  background-color: #CFEAFF;
+}
+
+.tag-box[data-sado="canna"] {
+  background-color: #b67147;
+}
+
+.tag-box[data-sado="kathy"] {
+  background-color: #5b5b5b;
+}
+
+.tag-box[data-sado="festa"] {
+  background-color: #ec7a84;
+}
+
+.tag-box[data-sado="jade"] {
+  background-color: #85A491;
+}
+
+.tag-box[data-sado="eisia"] {
+  background-color: #4D98DF;
+}
+
+
+.speech-bubble {
+    display: block;          /* 한 줄 전체 차지 */
+    width: fit-content; 
+    word-wrap: break-word;
+    white-space: normal;
+    position: relative;
+    border-radius: .4em;
+    padding: 10px 15px;
+    margin: 4px 0;
+}
+.speech-bubble:before {
+    content: '';
+    position: absolute;
+    top: -18px; 
+    left: 20px;
+    border: 10px solid transparent;
+    margin-left: -10px;
+}
+/* 라이트 모드일 때 */
+[data-md-color-scheme="default"] .speech-bubble {
+  background-color: #f0f0f0;
+}
+
+[data-md-color-scheme="default"] .speech-bubble:before {
+    border-bottom-color: #f0f0f0;
+}
+
+/* 다크 모드일 때 */
+[data-md-color-scheme="slate"] .speech-bubble {
+  background-color: #2f3338;
+  color: #d3d6da;
+}
+
+/* 다크 모드일 때 */
+[data-md-color-scheme="slate"] .speech-bubble:before {
+  border-bottom-color: #2f3338;
+}
+
+.mind-bubble {
+    display: block;          /* 한 줄 전체 차지 */
+    width: fit-content; 
+    word-wrap: break-word;
+    white-space: normal;
+    position: relative;
+    border-radius: .4em;
+    padding: 10px 15px;
+    margin: 4px 0;
+    color: #000000DE
+}
+
+[data-md-color-scheme="default"] .mind-bubble {
+  background-color: #e983ff70;
+}
+
+[data-md-color-scheme="slate"] .mind-bubble {
+  background-color: #e983ff70;
+}
+
+/* Custom admonition colors */
+.md-typeset .admonition.custom {
+  border-color: #7c4dff;
+}
+
+.md-typeset .custom > .admonition-title {
+  background-color: #7c4dff1a;
+  border-color: #7c4dff;
+}
+
+.md-typeset .custom > .admonition-title::before {
+  background-color: #7c4dff;
+  content: "✨";
+}
+
+/* Modify existing types */
+.md-typeset .admonition.note {
+  font-size: 0.9rem;
+}
+
+/* Animations */
+.md-typeset details[open] > summary ~ * {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* center-table 클래스를 가진 표만 가운데 정렬 */
+.center-table {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 1em 0;
+}
+
+/* center-table 안의 표는 내용 크기에 맞게 */
+.center-table table {
+    margin: 0 auto;
+    width: auto;  /* 표 너비 자동 조절 */
+    border-collapse: collapse;
+}
+
+/* 표 안의 텍스트 가운데 정렬 */
+.center-table td,
+.center-table th {
+    text-align: center;
+}
+

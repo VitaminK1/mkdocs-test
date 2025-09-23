@@ -1,0 +1,351 @@
+/* Battle / Aside visual styles inspired by the attachment */
+.battle-panel{background:#1c1f21;border:3px solid #6aa04a;border-radius:10px;padding:9px 18px 18px 18px;color:#e6f7db}
+.battle-title{font-size:1.4rem;color:#e6f7db;margin:0 0 8px 0}
+.battle-sub{background:#3a6a48;color:#eaf7e8;padding:8px;border-radius:24px;display:inline-block;margin-bottom:12px}
+.battle-header{display:flex;gap:12px;align-items:center}
+.battle-header-img{width:84px;height:84px;border-radius:8px;flex:0 0 84px;margin:6px;}
+.battle-panel, .battle-panel *{font-weight:normal;}
+
+/* Rank list styles (compact) */
+.rank-list.dense, .rank-list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 6px; }
+.rank-row { display: flex; gap: 6px; align-items: stretch; }
+.rank-label { background: #2f9e44; color: #072a17; padding: 6px 8px; border-radius: 6px; width: 110px; max-width:110px; min-width:110px; display:flex; align-items:center; justify-content:center; font-size:0.78rem; line-height:1; }
+.rank-content { display: flex; gap: 6px; flex: 1; }
+.rank-inner { width:100%; display:flex; gap:6px; align-items:center; background:#f0fbf0; border:1px solid #79d484; border-radius:7px; padding:4px; }
+.stat-pill { background: #fbfefa; border-radius: 16px; padding: 2px 6px; display:flex; align-items:center; gap:6px; flex:1; justify-content: space-between; border: 1px solid rgba(0,0,0,0.02); font-size:0.82rem }
+.pill-left { display:flex; gap:6px; align-items:center; }
+.icon-circle { padding:2px;display:inline-flex;align-items:center;justify-content:center;}
+.stat-pill img {display:inline-block; }
+.stat-num { color:#0f3a1b; padding:2px 6px; font-size:0.82rem }
+
+@media (max-width:720px){
+	.rank-row{ flex-direction:column; align-items:stretch; }
+	.rank-label { min-width: auto; width:100%; max-width:none; }
+}
+.skill-list{display:grid;grid-template-columns:1fr;gap:12px}
+.skill-card{background:#222427;border:2px solid #4e8f5a;padding:12px;border-radius:8px;display:flex;gap:12px}
+.skill-card .icon{width:72px;height:72px;border-radius:8px}
+.skill-card .meta{flex:1}
+.skill-name{font-size:1.1rem;color:#ffe79a}
+.skill-desc{color:#cfe7c8;margin:8px 0}
+.skill-stats{color:#cfe7c88f;margin-top:2px;font-size:0.7rem;}
+.skill-percent{color:#6ff0c8}
+.red-text{color:#ff6b6b;}
+.badge-stars{display:inline-flex;gap:6px;vertical-align:middle;align-items:center;font-size:1.1rem;line-height:1}
+img.badge-stars{height:1.5rem;width:auto;display:inline-block;vertical-align:middle}
+
+/* Light mode overrides using material theme data attribute (do not modify dark mode) */
+[data-md-color-scheme="default"] .battle-panel{
+	background: #f6ffed; /* light cream/green */
+	border-color: #c7e9b8;
+	color: var(--md-default-fg-color, #123212);
+}
+[data-md-color-scheme="default"] .battle-title{color: #0b3b17}
+[data-md-color-scheme="default"] .battle-sub{background:#d9f3d1;color:#0b3b17}
+[data-md-color-scheme="default"] .battle-header-img{box-shadow: none}
+[data-md-color-scheme="default"] .skill-card{background:#ffffff;border-color:#d8efcd;color:var(--md-default-fg-color, #162912)}
+[data-md-color-scheme="default"] .skill-name{color:#2b7b3a}
+[data-md-color-scheme="default"] .skill-desc{color:#254d2a}
+[data-md-color-scheme="default"] .skill-stats{color:#2f5f38}
+[data-md-color-scheme="default"] .skill-percent{color:#0b8a3d}
+[data-md-color-scheme="default"] .red-text{color:#c21b1b}
+[data-md-color-scheme="default"] .badge-stars{color:#f5b400}
+[data-md-color-scheme="default"] img.badge-stars{filter:none}
+
+/* Slate / dark mode: reuse stat-card palette so rank-list matches the dark theme */
+[data-md-color-scheme="slate"] .rank-list,
+[data-md-color-scheme="slate"] .rank-row,
+[data-md-color-scheme="slate"] .rank-content,
+[data-md-color-scheme="slate"] .rank-inner{ 
+	/* panel background should match .stat-card in slate */
+	background: transparent; /* rank-inner will get its own background below */
+}
+[data-md-color-scheme="slate"] .rank-label{
+	background: #6aa04a; /* same accent used for stat-card border */
+	color: #072a17; /* dark text on green pill (keeps high contrast) */
+}
+[data-md-color-scheme="slate"] .rank-inner{
+	background: #222427; /* match stat-row / stat-card inner background */
+	border: 1px solid rgba(78,143,90,0.08); /* subtle green border */
+}
+[data-md-color-scheme="slate"] .stat-pill{
+	background: #181a1b; /* slightly lighter than page bg so pills stand out */
+	color: #cfe7c8; /* pale text like stat-card */
+	border: 1px solid rgba(78,143,90,0.06);
+}
+[data-md-color-scheme="slate"] .stat-num{
+	color:#ffe79a; /* gold-ish like stat-value for emphasis */
+}
+
+/* Preferences panel (two-column desktop / single-column mobile) */
+.prefs-panel{ display:grid; grid-template-columns:1fr 1fr; gap:14px; max-width:1100px; margin:18px auto }
+.prefs-col{ display:flex; flex-direction:column; gap:10px }
+.pref-card{ display:flex; gap:12px; align-items:center; justify-content:center; background:#fbfff9; border:1px solid #d7efd2; padding:10px; border-radius:10px }
+.pref-icon{ position: relative; width:64px; height:64px; flex:0 0 64px; border-radius:12px; overflow:visible; display:flex; align-items:center; justify-content:center;  }
+.pref-icon img{ display:block }
+.pref-icon img.frame{ position:absolute; left:0; top:0; width:100%; height:100%; display:block; z-index:1 }
+.pref-icon img.overlay{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:44px; height:44px; object-fit:contain; z-index:2 }
+
+/* Small variant of .pref-icon for compact framed icons (mini) */
+.pref-mini-icon{ position:relative; width:40px; height:40px; flex:0 0 40px; border-radius:8px; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg,#ffffff,#f3f9f4); border:1px solid rgba(43,182,115,0.06); overflow:visible }
+.pref-mini-icon img{ display:block }
+.pref-mini-icon img.frame{ position:absolute; left:0; top:0; width:100%; height:100%; display:block; z-index:1 }
+.pref-mini-icon img.overlay{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:24px; height:24px; object-fit:contain; z-index:2 }
+.pref-body{ flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center }
+.pref-title{ color:#083826; margin-bottom:6px }
+.pref-desc{ color:#254d2a; font-size:0.95rem }
+
+@media (max-width:900px){
+  .prefs-panel{ grid-template-columns:1fr }
+}
+
+/* Slate overrides for preferences panel: align with stat-card/battle palette */
+[data-md-color-scheme="slate"] .pref-card{ background: #181a1b; border: 1px solid rgba(78,143,90,0.06); color: #e6f7db }
+[data-md-color-scheme="slate"] .pref-title{ color: #e6f7db }
+
+/* Responsive: make the first header column compact on small screens so it doesn't enforce
+   the desktop 180px width. This allows the icon cell to be ~60px wide at <=520px. */
+@media (max-width:520px){
+  .prefs-table thead th:first-child { width: 80px; min-width: 60px; }
+  /* Slightly reduce pref-icon sizing to match the header width */
+  .prefs-table td > .pref-icon{ width:56px; height:56px; flex:0 0 56px }
+  .pref-icon-mini{ width:28px; flex:0 0 28px }
+}
+[data-md-color-scheme="slate"] .pref-desc{ color: #cfe7c8 }
+
+/* Preferences small icon used in table (size consolidated later) */
+.pref-icon-mini{ border-radius:8px; background:linear-gradient(180deg,#fff,#f3f9f4); display:flex; align-items:center; justify-content:center; border:1px solid rgba(43,182,115,0.06) }
+
+/* Preferences table */
+.prefs-table-wrap{ max-width:760px; margin:18px auto; overflow:auto; -webkit-overflow-scrolling:touch }
+.prefs-table{ width:100%; border-collapse:collapse; text-align:center; font-size:0.95rem }
+.prefs-table thead th{ background:#c1ffada2; padding:10px; color:#334d36; vertical-align:middle; text-align:center }
+.prefs-table thead th:first-child{ text-align:center }
+.prefs-table tbody td{ border:1px solid #e6efe2; padding:12px; background:#ffffff; vertical-align:middle; text-align:center }
+.prefs-table tbody tr td:first-child{ background:transparent; border: none; }
+/* make the first column compact and icon-only like the screenshot */
+.prefs-table .pref-icon-cell{ /* allow the cell to shrink when space is tight; keep a reasonable max */ margin: auto 0; min-width:0; max-width:130px; padding:8px 10px; text-align:center; display:table-cell; vertical-align:middle }
+.prefs-table thead th:first-child{ text-align:center }
+
+/* Desktop: keep a wide header on larger viewports */
+@media (min-width:721px){
+	.prefs-table thead th:first-child{ /* keep header sizing but allow body to control layout */ width:180px; min-width:120px }
+}
+.prefs-table tbody td:first-child{ /* allow the first column to expand as needed and keep label left-aligned */ min-width:0; text-align:left }
+/* show the label next to the icon and truncate if too long */
+.prefs-table .pref-icon-cell span{ display:inline-flex; align-items:center; justify-content:center; vertical-align:middle; /* force single-line label */ white-space:nowrap; overflow:visible; text-overflow:clip; flex:0 1 auto; min-width:0; font-size: clamp(0.55rem, 1.0vw, 0.95rem); }
+
+/* center the mini icon plus give a small gap to the label */
+.prefs-table .pref-icon-cell .pref-icon-mini{ display:inline-flex; align-items:center; justify-content:center; vertical-align:middle; margin-right:8px }
+/* ensure the mini icon is centered and sized consistently */
+.pref-icon-mini{ width:44px;border-radius:8px; display:flex; align-items:center; justify-content:center; flex:0 0 44px; min-width:44px; min-height:44px; max-width:44px; max-height:44px }
+.pref-icon-mini img{ width:28px; display:block; flex:0 0 28px }
+
+/* Force pref icons inside table cells to stay inline and fixed-size */
+.prefs-table td > .pref-icon{ display:inline-flex; width:64px; height:64px; flex:0 0 64px; margin-right:8px; border-radius:12px; align-items:center; justify-content:center; position:relative; border:1px solid rgba(43,182,115,0.06) }
+.prefs-table td > .pref-icon img.frame{ width:100%; height:100%; display:block; object-fit:contain }
+.prefs-table td > .pref-icon img.overlay{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:44px; height:44px; }
+
+/* colored row backgrounds for the first column to match screenshot */
+.prefs-table tbody tr:nth-child(1) td:first-child{ background:#f4c6c6 }
+.prefs-table tbody tr:nth-child(2) td:first-child{ background:#fff3bf }
+.prefs-table tbody tr:nth-child(3) td:first-child{ background:#e6f7d9 }
+.prefs-table tbody tr:nth-child(4) td:first-child{ background:#fbdee8 }
+.prefs-table tbody tr:nth-child(5) td:first-child{ background:#8b8b8b }
+@media (max-width:600px){
+	.prefs-table thead th{ font-size:0.85rem; padding:8px }
+	.prefs-table tbody td{ padding:8px }
+}
+
+/* Small screens: allow pref labels to wrap and use a smaller font */
+@media (max-width:520px){
+	/* reduce icon and label sizes so the label fits on one line */
+	.prefs-table .pref-icon-cell{ gap:6px; padding:6px; min-width:0; width: 60px;}
+	.pref-icon-mini{ width:32px; flex:0 0 32px; min-width:32px; min-height:32px; max-width:32px; max-height:32px }
+	.pref-icon-mini img{ width:18px; flex:0 0 18px }
+	.prefs-table .pref-icon-cell span{ white-space:nowrap; font-size: clamp(0.55rem, 0.9vw, 0.8rem); overflow:visible; text-overflow:clip }
+}
+
+/* Prevent table cells from completely collapsing at narrow widths.
+	 Use a flexible layout inside non-first cells so icons + labels can wrap
+	 while keeping a minimum height matching the icon size. */
+.prefs-table tbody td:not(:first-child){
+	align-items:center;
+	justify-content:flex-start;
+	gap:8px;
+	flex-wrap:wrap;
+	row-gap:8px;
+	/* ensure cells are at least as tall as the icon + padding */
+	min-height: calc(64px + 12px);
+}
+
+/* allow pref labels to wrap on very small screens to avoid overflow/collapse */
+@media (max-width:480px){
+	.prefs-table .pref-icon-cell span{ white-space:normal; }
+	.prefs-table .pref-icon-cell{ padding:6px 8px }
+	.prefs-table td > .pref-icon{ margin-right:6px }
+	.prefs-table tbody td{ padding-top:8px; padding-bottom:8px }
+}
+
+/* Slate overrides for the table */
+[data-md-color-scheme="slate"] .prefs-table thead th{ background:#21302a; color:#e6f7db }
+[data-md-color-scheme="slate"] .prefs-table thead th .th-badge{ stroke: rgba(78,143,90,0.12) }
+/* first-column preference labels (icon + text) should use dark-green in slate */
+[data-md-color-scheme="slate"] .prefs-table tbody td:first-child span{ color: #072a17 }
+
+/* header cell: small badge + label stacked */
+.th-cell{ display:flex; gap:8px; align-items:center; justify-content:center; padding:4px 6px }
+.th-cell .th-badge{ width:34px; height:34px; flex:0 0 34px; display:inline-block }
+.th-cell .th-badge[src]{ object-fit:contain }
+.th-cell span{ display:inline-block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:calc(100% - 44px); min-width:0; }
+
+@media (max-width:720px){
+	.th-cell{ gap:6px; padding:3px }
+	.th-cell .th-badge{ width:28px; height:28px; flex:0 0 28px }
+	/* stack badge above label on small screens to avoid horizontal overflow */
+	.th-cell{ flex-direction:column; gap:4px }
+	.th-cell span{ font-size:0.85rem; max-width:100%; white-space:normal; text-overflow:clip }
+}
+[data-md-color-scheme="slate"] .prefs-table tbody td{ background:#181a1b; border-color: rgba(78,143,90,0.04); color:#e6f7db }
+[data-md-color-scheme="slate"] .pref-icon-mini{ background:#222427; border:1px solid rgba(78,143,90,0.06) }
+
+[data-md-color-scheme="slate"] .pref-icon img.overlay{ filter: none }
+
+/* Intimacy / 친밀도 table styles (closer to screenshot) */
+/* make the intimacy block more compact */
+.intimacy-wrap{ max-width:100%; width:100%; margin:6px 0; padding:0 12px }
+/* pale green banner behind the section to match screenshot */
+.intimacy-banner{ background:#cfe6a8; border-radius:6px; padding:12px 12px; margin-bottom:12px; position:relative; display:flex; align-items:center; justify-content:flex-start }
+.intimacy-title{ margin:0; display:flex; align-items:center; justify-content:flex-start; padding: 8px 12px; min-height:40px;}
+.intimacy-pill{ display:inline-block; background:#6aa04a; color:#072a17; padding:8px 14px; border-radius:14px; font-size:1rem; line-height:1; box-shadow:none; border:1px solid rgba(0,0,0,0.04); transform:none }
+.intimacy-table-wrap{ border:1px solid rgba(0,0,0,0.06); border-radius:6px; overflow:hidden; box-shadow:0 1px 0 rgba(0,0,0,0.03) }
+.intimacy-table{ width:100%; border-collapse:collapse; font-size:1rem }
+.intimacy-table td{ padding:4px 6px; border-bottom:1px solid rgba(0,0,0,0.06); vertical-align:middle }
+.intimacy-table .intimacy-level{ width:120px; background: #eaf6d7; text-align:center; color:#0b3a12; font-size:0.78rem }
+.intimacy-table .intimacy-text{ text-align:left; background:#ffffff; color:#153a1c; font-size:0.8rem; padding-left: 1.4em; }
+.intimacy-table tbody tr:nth-child(odd) .intimacy-level{ background:#eaf6d7 }
+.intimacy-table tbody tr:nth-child(even) .intimacy-level{ background:#f3f9e6 }
+
+@media (max-width:900px){
+	.intimacy-pill{ padding:6px 10px; font-size:0.9rem; transform:none }
+  .intimacy-table .intimacy-level{ width:160px; font-size:0.76rem }
+}
+@media (max-width:720px){
+	.intimacy-table td{ padding:4px }
+	.intimacy-table .intimacy-level{ width:120px; font-size:0.72rem }
+	.intimacy-banner{ padding:6px }
+}
+
+/* Slate (dark) overrides to keep contrast */
+[data-md-color-scheme="slate"] .intimacy-banner{ background:#2a3b2e }
+[data-md-color-scheme="slate"] .intimacy-pill{ background:#496d3f; color:#e6f7db; box-shadow:none; border-color:rgba(255,255,255,0.03) }
+[data-md-color-scheme="slate"] .intimacy-table .intimacy-level{ background:#153025; color:#e6f7db }
+[data-md-color-scheme="slate"] .intimacy-table .intimacy-text{ background:transparent; color:#e6f7db }
+[data-md-color-scheme="slate"] .intimacy-table td{ border-bottom:1px solid rgba(78,143,90,0.06) }
+
+/* Additional slate tweaks for wrapper and alternating rows to improve contrast */
+
+/* Relationship panel (unique classes: rel-*) - visually match provided screenshot */
+.rel-panel{ max-width:1100px; margin:18px auto; padding:12px; border-radius:12px; background:#1b1d1e; border:4px solid #6a4528; box-shadow: inset 0 0 0 2px rgba(255,184,120,0.04) }
+.rel-panel-inner{ padding:0 }
+.rel-title{ text-align:center; color:#f5f5f5; margin:6px 0 10px 0 !important;font-size:1.5rem }
+.rel-note{ text-align:center; color:#d6c2aa; margin:6px 0 14px 0 }
+.rel-note.small{ font-size:0.85rem; margin-top:12px }
+.rel-grid{ display:grid; grid-template-columns: repeat(5, 1fr); gap:14px; align-items:center }
+.rel-card{ background:transparent; border:2px solid rgba(255,184,120,0.12); border-radius:8px; padding:18px 12px; display:flex; flex-direction:column; align-items:center; justify-content:center }
+.rel-icon{ width:86px; height:86px; border-radius:50%; background:#2a2c2d; display:flex; align-items:center; justify-content:center; margin-bottom:8px; box-shadow: 0 0 0 6px rgba(255,184,120,0.02) }
+.rel-icon img{ width:68px; height:68px; display:block; border-radius:50% }
+.rel-label{ text-align:center; color:#f0e6da; margin-top:4px }
+
+/* Main skill modifier - keep card footprint identical but emphasize visually */
+.rel-card.rel-main{ position:relative; border-color: #ffb878; box-shadow: 0 0 0 4px rgba(255,184,120,0.03) }
+.rel-card.rel-main .rel-icon{ box-shadow: 0 0 0 8px rgba(255,184,120,0.03); }
+.rel-card.rel-main .rel-icon img{ width:72px; height:72px }
+
+.rel-badge{ position:absolute; top:8px; left:8px; background:#ffb878; color:#331f11; padding:4px 8px; font-size:0.75rem; border-radius:12px;}
+
+@media (max-width:600px){
+		.rel-card.rel-main .rel-icon img{ width:60px; height:60px }
+		.rel-card.rel-main .rel-icon{ box-shadow: 0 0 0 6px rgba(255,184,120,0.03) }
+}
+
+@media (max-width:900px){
+	.rel-grid{ grid-template-columns: repeat(3, 1fr) }
+}
+@media (max-width:600px){
+	.rel-grid{ grid-template-columns: repeat(2, 1fr) }
+	.rel-panel{ padding:12px }
+	.rel-card{ padding:10px }
+	.rel-icon{ width:64px; height:64px }
+	.rel-icon img{ width:52px; height:52px }
+}
+
+/* Slate-aware overrides for rel-* panel */
+[data-md-color-scheme="slate"] .rel-panel{ background:#111213; border-color:#4b2f1e }
+[data-md-color-scheme="slate"] .rel-card{ border-color: rgba(255,184,120,0.06) }
+[data-md-color-scheme="slate"] .rel-title{ color:#f5efe6 }
+[data-md-color-scheme="slate"] .rel-note{ color:#cdbca7 }
+[data-md-color-scheme="slate"] .rel-label{ color:#efe7d8 }
+
+/* Light-mode overrides for rel-* panel */
+[data-md-color-scheme="default"] .rel-panel{ background:#f9f3ee; border-color:#c08a54; box-shadow: inset 0 0 0 2px rgba(0,0,0,0.02) }
+[data-md-color-scheme="default"] .rel-card{ border-color: rgba(43,24,12,0.08); background: #fff8f4 }
+[data-md-color-scheme="default"] .rel-title{ color:#2b2b2b }
+[data-md-color-scheme="default"] .rel-note{ color:#5b4a3f }
+[data-md-color-scheme="default"] .rel-label{ color:#2b2b2b }
+[data-md-color-scheme="default"] .rel-icon{ background:#f0e9e5 }
+[data-md-color-scheme="slate"] .intimacy-wrap{ background:transparent }
+[data-md-color-scheme="slate"] .intimacy-table-wrap{ border:1px solid rgba(78,143,90,0.06); background:transparent }
+[data-md-color-scheme="slate"] .intimacy-table tbody tr:nth-child(odd) .intimacy-level{ background: #1d3000ad }
+[data-md-color-scheme="slate"] .intimacy-table tbody tr:nth-child(even) .intimacy-level{ background: #1d3000ad }
+[data-md-color-scheme="slate"] .intimacy-table .intimacy-text{ color: #ffffffd3 }
+
+/* rp-* relationship panel (completely separate classes) */
+.rp-panel{ max-width:1100px; margin:18px auto; padding:12px; border-radius:12px; background:#1b1d1e; border:4px solid #2f2b2a; box-shadow: inset 0 0 0 2px rgba(255,255,255,0.02); position:relative; z-index:0 }
+.rp-inner{ padding:12px }
+.rp-title{ color:#f5f5f5; font-size:1.2rem; margin:6px 0 12px 0; text-align:left; padding-left:12px }
+.rp-columns{ display:grid; grid-template-columns:1fr 1fr; gap:18px }
+.rp-list{ display:flex; flex-direction:column; gap:12px }
+.rp-row{ display:flex; gap:12px; align-items:flex-start; padding:8px; border-radius:10px }
+.rp-iconbox{ width:64px; height:64px; border-radius:12px; background:#2b2d2e; display:flex; align-items:center; justify-content:center; flex:0 0 64px }
+.rp-iconbox img{ width:48px; height:48px }
+.rp-body{ flex:1 }
+.rp-item-title{ color:#ffffff; margin-bottom:2px;font-size:0.95rem; }
+.rp-item-desc{ color:#cfcfcf; }
+
+/* overlay emoticon placed to the right and above the main icon */
+.rp-row{ position:relative }
+.rp-emote{ position:absolute; left:52px; top:-2px; width:28px; height:28px; display:flex; align-items:center; justify-content:center; z-index:2 }
+.rp-emote img{ width:64px; object-fit:contain }
+
+@media (max-width:900px){ .rp-columns{ grid-template-columns:1fr } }
+
+/* light mode for rp-panel */
+[data-md-color-scheme="default"] .rp-panel{ background:#fbf7f5; border-color:#d3cbc8 }
+[data-md-color-scheme="default"] .rp-item-title{ color:#2b2b2b }
+[data-md-color-scheme="default"] .rp-item-desc{ color:#444 }
+[data-md-color-scheme="default"] .rp-iconbox{ background:#fff }
+
+/* slate overrides */
+[data-md-color-scheme="slate"] .rp-panel{ background:#111213; border-color:#2a2a2a }
+[data-md-color-scheme="slate"] .rp-item-title{ color:#f5efe6 }
+[data-md-color-scheme="slate"] .rp-item-desc{ color:#c8c8c8 }
+[data-md-color-scheme="slate"] .rp-item-title{ color:#ffffff }
+
+/* rp-mini: dashed pill with mini icon and emoticon overlay */
+.rp-mini{ margin-top:10px; display:flex; align-items:center; gap:10px; }
+.rp-mini-icon{ width:60px; display:flex; align-items:center; justify-content:center; flex:0 0 40px; position:relative; overflow:visible }
+.rp-mini-icon img{ width:60px;}
+.rp-mini-label{ padding:10px 14px; border-radius:8px; background:transparent; border:2px dashed rgba(255,255,255,0.08); color:#e6e6e6; flex:1 }
+.rp-mini-emote{ position:absolute; right:-6px; top:-6px; width:20px;display:flex; align-items:center; justify-content:center; z-index:2 }
+.rp-mini-emote img{ width:20px;}
+
+@media (max-width:900px){ .rp-mini-label{ padding:8px 10px } }
+[data-md-color-scheme="slate"] .rp-iconbox{ background:#202223 }
+/* slate overrides for mini emote */
+[data-md-color-scheme="slate"] .rp-mini-icon{ background:#26282a; border:1px solid rgba(255,255,255,0.03) }
+[data-md-color-scheme="slate"] .rp-mini-label{ border-color: rgba(255,255,255,0.04); color:#e6e6e6 }
+
+/* light mode tweaks for mini emote */
+[data-md-color-scheme="default"] .rp-mini-icon{ background:#ffffff }
+[data-md-color-scheme="default"] .rp-mini-label{ color:#2b2b2b; border-color: rgba(43,24,12,0.06) }

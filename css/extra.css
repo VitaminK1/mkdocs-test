@@ -1,0 +1,581 @@
+:root  > * {
+  --md-primary-fg-color--light: #4051B5;
+  --md-primary-fg-color--dark:  #12161b;
+}
+
+:root {
+  --md-text-font: "ONEMobilePOP";
+  --md-code-font: "Noto Mono";
+}
+
+:root {
+  /* corrected path: use the existing logo.svg under docs/assets */
+  --md-admonition-icon--card: url("../assets/logo.svg");
+}
+.md-typeset .admonition.card,
+.md-typeset details.card {
+  border-color: rgb(43, 155, 70);
+}
+.md-typeset .card > .admonition-title,
+.md-typeset .card > summary {
+  background-color: rgba(43, 155, 70, 0.1);
+}
+.md-typeset .card > .admonition-title::before,
+.md-typeset .card > summary::before {
+  background-color: rgb(43, 155, 70, 0);
+  -webkit-mask-image: var(--md-admonition-icon--card);
+          mask-image: var(--md-admonition-icon--card);
+}
+
+/* Card admonition: layout and sizing to match screenshot while preserving colors above */
+.md-typeset .admonition.card,
+.md-typeset details.card {
+  border-radius: 8px;
+  border: 2px solid rgba(255, 165, 0, 0.95); /* orange accent similar to screenshot */
+  overflow: hidden;
+  box-shadow: none;
+}
+
+.md-typeset .admonition.card > .admonition-title,
+.md-typeset details.card > summary {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background-color: rgba(255, 239, 219, 0.6); /* pale title background, keep color family */
+}
+
+.md-typeset .admonition.card > .admonition-title .admonition-icon,
+.md-typeset details.card > summary .admonition-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: 0 0 1.25rem;
+  display: inline-block;
+  margin-right: 0.25rem;
+}
+
+/* Title text styling */
+.md-typeset .admonition.card > .admonition-title .admonition-title-text,
+.md-typeset details.card > summary .admonition-title-text {
+  color: #6b2ca8; /* preserve purple heading tint seen in screenshot */
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+/* Make all admonition titles use normal font weight */
+.md-typeset .admonition > .admonition-title,
+.md-typeset details > summary,
+.md-typeset .admonition .admonition-title .admonition-title-text,
+.md-typeset details .admonition-title-text {
+  font-weight: 400;
+}
+
+/* Content area */
+.md-typeset .admonition.card > .admonition-content,
+.md-typeset details.card > .admonition-content {
+  padding: 1.25rem 1.25rem 1.5rem 1.25rem;
+  background-color: rgba(255, 250, 245, 0.95); /* pale body background */
+  color: inherit;
+  font-size: 1.15rem;
+}
+
+html .md-typeset .admonition>:last-child, html .md-typeset details>:last-child {
+  margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
+  margin-left: 0.4rem;
+  margin-right: 0.4rem;
+}
+
+.md-typeset .admonition.quote>:first-child {
+  margin-top: 0.4rem;
+  margin-bottom: 0.2rem;
+}
+
+.md-typeset .admonition, .md-typeset details {
+  margin: 0.6rem 0;
+}
+
+html .md-typeset details>:first-child {
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.md-nav__item--section>.md-nav__link,
+.md-nav__title {
+  font-weight: normal;
+}
+
+.md-typeset details.abstract {
+    border-color: #81a9bb5c;
+}
+
+/* 특정 이모지 크기 키우기 및 정렬 개선 */
+.big-emoji {
+  display: inline-block !important; /* Ensure inline alignment */
+  vertical-align: middle !important; /* Align with text */
+  margin: 2px !important; /* Remove any extra margins */
+  padding: 0 !important; /* Remove any extra padding */
+  font-size: 2.5em !important;
+  line-height: 1 !important; /* Prevent extra vertical space */
+  border-radius: 999px;
+}
+
+.small-emoji {
+  display: inline-block !important; /* Ensure inline alignment */
+  vertical-align: middle !important; /* Align with text */
+  margin: 2px !important; /* Remove any extra margins */
+  padding: 0 !important; /* Remove any extra padding */
+  font-size: 1.8em !important;
+  line-height: 1 !important; /* Prevent extra vertical space */
+  border-radius: 999px;
+}
+
+.medium-emoji {
+  display: inline-block !important; /* Ensure inline alignment */
+  vertical-align: middle !important; /* Align with text */
+  margin: 2px !important; /* Remove any extra margins */
+  padding: 0 !important; /* Remove any extra padding */
+  font-size: 2.0em !important;
+  line-height: 1 !important; /* Prevent extra vertical space */
+}
+
+/* MkDocs가 생성하는 이모지 이미지(<img>)나 SVG 자체의 정렬도 명시 */
+span.big-emoji img,
+span.big-emoji svg {
+  display: inline-block !important;    /* keep image inline and allow vertical-align */
+  vertical-align: middle !important; /* 이미지/SVG 자체의 수직 정렬 */
+  line-height: 1 !important;
+  border-radius: 999px; /* Make the image itself rounded */
+  overflow: hidden; /* Ensure content stays within the rounded border */
+}
+
+/* Mirror the same rules for small-emoji so images/SVG scale and align the same way */
+span.small-emoji img,
+span.small-emoji svg {
+  display: inline-block !important;
+  vertical-align: middle !important;
+  line-height: 1 !important;
+  border-radius: 999px;
+  overflow: hidden;
+  /* Make images respect the surrounding font-size for consistent scaling */
+  max-width: 1em !important;
+  max-height: 1em !important;
+  height: auto !important;
+}
+
+@font-face {
+  font-family: "ONEMobilePOP"; 
+  font-weight: normal; 
+  font-style: normal;
+  src: url("../assets/font/ONEMobilePOP.ttf");
+}
+
+@keyframes heart {
+  0%, 40%, 80%, 100% {
+    transform: scale(1);
+  }
+  20%, 60% {
+    transform: scale(1.15);
+  }
+}
+.heart {
+  animation: heart 1000ms infinite;
+}
+
+.video-wrapper {
+  position: relative;
+  display: block;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+}
+.video-wrapper > iframe {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Simplified responsive video helper: use directly on an iframe
+   Example: <iframe class="video" src="..." allowfullscreen></iframe> */
+.video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+
+/* Ensure pymdownx.tabbed labels are normal weight (override Material theme's bold rule)
+   Use a highly-specific selector and !important as last-resort to beat theme CSS. */
+.md-typeset .tabbed-set .tabbed-labels > label,
+.md-typeset .tabbed-set .tabbed-labels > label span {
+  font-weight: normal;
+}
+
+/* Also handle the alternate style (when labels are buttons/anchors) */
+.md-typeset .tabbed-set .tabbed-labels > input + label,
+.md-typeset .tabbed-set .tabbed-labels > input + label span {
+  font-weight: normal;
+}
+
+.nav-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+/* Image + caption styling similar to the provided screenshot */
+
+.md-typeset figure {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 4px solid rgba(189, 252, 120, 0.25); /* subtle green outline */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  line-height: 0; /* remove inline whitespace gap between image and caption without changing display */
+}
+
+.md-typeset figure img {
+  display: inline-block;
+  height: auto;
+  margin: 0;
+  max-width: 100%;
+  vertical-align: bottom; /* align image edge to remove descender gap */
+}
+
+.md-typeset figcaption {
+  display: block;
+  background-color: #493b3b; /* dark caption bar */
+  color: #bfdc7f; /* light green caption text */
+  text-align: center;
+  align-content: center;
+  padding: 0.3rem 0.6rem;
+  font-weight: 100;
+  font-size: 0.75rem;
+  font-style: normal;
+  margin: 0;
+  max-width: none;
+  height: 2rem;
+  width: auto;
+  text-overflow : ellipsis;
+}
+
+[data-md-color-scheme="slate"] .md-typeset figcaption {
+  background-color: #2e3033;
+}
+
+.md-typeset p {
+  margin: 0;
+  font-weight: 100;
+}
+
+/* Global typography: apply to readable text nodes with higher specificity so
+   we don't need !important. We scope via the presence of a theme data attribute
+   on body and specifically target common content containers while excluding
+   inline code and preformatted blocks. */
+body[data-md-color-scheme] .md-typeset:not(.md-typeset--nospacing),
+body[data-md-color-scheme] .md-content__inner .md-typeset,
+body[data-md-color-scheme] .md-content__inner > * {
+  /* Apply to normal text containers */
+  --user-line-height: 1.8;
+  --user-letter-spacing: 0.6px;
+}
+
+/* Concrete rules using the variables above for typical inline text elements */
+body[data-md-color-scheme] .md-typeset p,
+body[data-md-color-scheme] .md-typeset li,
+body[data-md-color-scheme] .md-typeset blockquote,
+body[data-md-color-scheme] .md-typeset td,
+body[data-md-color-scheme] .md-typeset th,
+body[data-md-color-scheme] .md-typeset figcaption,
+body[data-md-color-scheme] .md-typeset .admonition-content {
+  line-height: var(--user-line-height);
+  letter-spacing: var(--user-letter-spacing);
+}
+
+.md-annotation__index:after {
+  height: 2ch;
+}
+
+.md-typeset mark, .md-typeset ins.critic {
+  padding: 0.1em 0.2em;
+  background-color: #00ff8063;
+}
+
+.md-typeset__table {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.md-typeset table:not([class]) {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.md-nav__list {
+  margin-top: 0.5rem;
+  margin-bottom: 0.2rem;
+}
+
+.kj-record-wrap { color:#333; }
+.kj-record { max-width:920px; margin:18px auto; background:#dff0b8; border-radius:8px; padding:18px; box-shadow:0 0 0 1px rgba(0,0,0,0.03) inset; border:1px solid rgba(0,0,0,0.06); }
+.kj-record .kj-title { display:inline-block; background:#9fcf55; color:#0b2611; padding:8px 14px; border-radius:8px; box-shadow:0 2px 0 rgba(0,0,0,0.06); margin-bottom:14px; font-size:1.05rem; }
+
+.kj-cards { display:flex; flex-direction:column; gap:12px; margin-top:6px; }
+.kj-card { background:#fbf5ea; border-radius:8px; padding:14px; border:2px solid rgba(0,0,0,0.06); box-shadow:0 2px 0 rgba(0,0,0,0.04); }
+.kj-card .kj-level { color:#5a4b2a; margin-bottom:8px; font-size:0.98rem; }
+.kj-card .kj-text { color:#3b3b3b; line-height:1.6; white-space:pre-wrap; font-size:0.75rem; }
+
+/* Decorative inner border like the sample */
+.kj-card-inner { border:1px solid rgba(0,0,0,0.04); padding:10px; border-radius:6px; }
+
+/* Accent left bar on each card */
+.kj-card { position:relative; }
+.kj-card::after { content:""; position:absolute; left:12px; top:12px; bottom:12px; width:4px; background:linear-gradient(#78b33b,#9fd85a); border-radius:3px; opacity:0.98; }
+.kj-card .kj-level, .kj-card .kj-text { margin-left:26px; }
+
+/* Higher specificity for Material's markdown container so rules reliably apply
+   even if the theme has strong selectors targeting content area. */
+.md-typeset .kj-cards { display:flex; flex-direction:column; gap:12px; margin-top:6px; }
+.md-typeset .kj-card {
+  background:#fbf5ea;
+  border-radius:8px;
+  padding:14px;
+  border:2px solid rgba(0,0,0,0.06);
+  box-shadow:0 2px 0 rgba(0,0,0,0.04);
+  position:relative;
+}
+.md-typeset .kj-card .kj-level { color:#5a4b2a; margin-bottom:8px; font-size:0.98rem; }
+.md-typeset .kj-card .kj-text { color:#3b3b3b; line-height:1.6; white-space:pre-wrap; font-size:0.75rem; }
+.md-typeset .kj-card-inner { border:1px solid rgba(0,0,0,0.04); padding:10px; border-radius:6px; }
+.md-typeset .kj-card::after { content:""; position:absolute; left:12px; top:12px; bottom:12px; width:4px; background:linear-gradient(#78b33b,#9fd85a); border-radius:3px; opacity:0.98; }
+.md-typeset .kj-card .kj-level, .md-typeset .kj-card .kj-text { margin-left:26px; }
+
+/* Slate/dark mode variant with higher specificity */
+[data-md-color-scheme="slate"] .md-typeset .kj-card {
+  background: #1d241b; /* darker panel in slate to match theme */
+  border-color: rgba(78,143,90,0.06);
+  box-shadow: none;
+}
+[data-md-color-scheme="slate"] .md-typeset .kj-card .kj-level,
+[data-md-color-scheme="slate"] .md-typeset .kj-card .kj-text {
+  color: #e6f7db;
+}
+
+/* Responsive tweaks */
+@media (max-width:680px) {
+  .kj-record { margin:12px; padding:12px; }
+  .kj-card { padding:12px; }
+  .kj-card::after { left:10px; }
+  .kj-card .kj-level, .kj-card .kj-text { margin-left:22px; }
+}
+
+/* Light-mode (explicit) overrides so styles remain correct when theme sets the default scheme
+   Material uses the [data-md-color-scheme="default"] attribute on body for light mode.
+   These rules strictly scope the kj- styles to the default color-scheme to avoid colliding
+   with other theme modes while preserving the default font (inherit). */
+[data-md-color-scheme="default"] .kj-record-wrap { color: #333 !important; }
+[data-md-color-scheme="default"] .kj-record {
+  max-width:920px;
+  margin:18px auto;
+  background:#dff0b8;
+  border-radius:8px;
+  padding:18px;
+  box-shadow:0 0 0 1px rgba(0,0,0,0.03) inset;
+  border:1px solid rgba(0,0,0,0.06);
+}
+[data-md-color-scheme="default"] .kj-record .kj-title {
+  display:inline-block;
+  background:#9fcf55;
+  color:#0b2611;
+  padding:8px 14px;
+  border-radius:8px;
+  box-shadow:0 2px 0 rgba(0,0,0,0.06);
+  margin-bottom:14px;
+  font-size:1.05rem;
+}
+[data-md-color-scheme="default"] .kj-cards { display:flex; flex-direction:column; gap:12px; margin-top:6px; }
+[data-md-color-scheme="default"] .kj-card {
+  background:#fbf5ea;
+  border-radius:8px;
+  padding:14px;
+  border:2px solid rgba(0,0,0,0.06);
+  box-shadow:0 2px 0 rgba(0,0,0,0.04);
+}
+[data-md-color-scheme="default"] .kj-card .kj-level { color:#5a4b2a; margin-bottom:8px; font-size:0.98rem; }
+[data-md-color-scheme="default"] .kj-card .kj-text { color:#3b3b3b; line-height:1.6; white-space:pre-wrap; }
+[data-md-color-scheme="default"] .kj-card-inner { border:1px solid rgba(0,0,0,0.04); padding:10px; border-radius:6px; }
+[data-md-color-scheme="default"] .kj-card { position:relative; }
+[data-md-color-scheme="default"] .kj-card::after { content:""; position:absolute; left:12px; top:12px; bottom:12px; width:4px; background:linear-gradient(#78b33b,#9fd85a); border-radius:3px; opacity:0.98; }
+[data-md-color-scheme="default"] .kj-card .kj-level, [data-md-color-scheme="default"] .kj-card .kj-text { margin-left:26px; }
+
+@media (max-width:680px) {
+  [data-md-color-scheme="default"] .kj-record { margin:12px; padding:12px; }
+  [data-md-color-scheme="default"] .kj-card { padding:12px; }
+  [data-md-color-scheme="default"] .kj-card::after { left:10px; }
+  [data-md-color-scheme="default"] .kj-card .kj-level, [data-md-color-scheme="default"] .kj-card .kj-text { margin-left:22px; }
+}
+
+/* Slate (dark) mode overrides to make the kj-record cards comfortable to read */
+[data-md-color-scheme="slate"] .kj-record-wrap { color: #e8efe2; }
+[data-md-color-scheme="slate"] .kj-record {
+  max-width:920px;
+  margin:18px auto;
+  background: linear-gradient(180deg, rgba(30,38,33,0.65), rgba(24,30,26,0.7));
+  border-radius:8px;
+  padding:18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6) inset;
+  border:1px solid rgba(255,255,255,0.04);
+}
+[data-md-color-scheme="slate"] .kj-record .kj-title {
+  display:inline-block;
+  background:#2e5a31;
+  color:#e8f6e7;
+  padding:8px 14px;
+  border-radius:8px;
+  box-shadow:0 2px 0 rgba(0,0,0,0.4);
+  margin-bottom:14px;
+  font-size:1.05rem;
+}
+[data-md-color-scheme="slate"] .kj-cards { display:flex; flex-direction:column; gap:12px; margin-top:6px; }
+[data-md-color-scheme="slate"] .kj-card {
+  background: linear-gradient(180deg, #2a2f2a, #232722);
+  border-radius:8px;
+  padding:14px;
+  border:1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+[data-md-color-scheme="slate"] .kj-card .kj-level { color:#bfcfaf; margin-bottom:8px; font-size:0.98rem; }
+[data-md-color-scheme="slate"] .kj-card .kj-text { color:#dfe7d9; line-height:1.6; white-space:pre-wrap; font-size:0.75rem; }
+[data-md-color-scheme="slate"] .kj-card-inner { border:1px solid rgba(255,255,255,0.02); padding:10px; border-radius:6px; }
+[data-md-color-scheme="slate"] .kj-card { position:relative; }
+[data-md-color-scheme="slate"] .kj-card::after { content:""; position:absolute; left:12px; top:12px; bottom:12px; width:4px; background:linear-gradient(#4c8b46,#7fb56a); border-radius:3px; opacity:0.95; }
+[data-md-color-scheme="slate"] .kj-card .kj-level, [data-md-color-scheme="slate"] .kj-card .kj-text { margin-left:26px; }
+
+@media (max-width:680px) {
+  [data-md-color-scheme="slate"] .kj-record { margin:12px; padding:12px; }
+  [data-md-color-scheme="slate"] .kj-card { padding:12px; }
+  [data-md-color-scheme="slate"] .kj-card::after { left:10px; }
+  [data-md-color-scheme="slate"] .kj-card .kj-level, [data-md-color-scheme="slate"] .kj-card .kj-text { margin-left:22px; }
+}
+
+/* vk- card styles moved from docs/others/item.md to central extra.css for easier maintenance */
+.md-typeset .vk-card-outer {
+  max-width: 760px;
+  margin: 20px auto;
+  padding: 8px;
+  overflow-x: auto; /* allow horizontal scroll on very narrow viewports so the two-column layout stays side-by-side */
+}
+
+.md-typeset .vk-card {
+  /* Use a responsive flex layout that wraps on narrow viewports. This restores the
+     original behavior where the left column can stack above the right column when
+     there isn't enough horizontal space. */
+  display: flex;
+  flex-wrap: wrap; /* allow stacking on small screens */
+  gap: 22px;
+  align-items: flex-start;
+  padding: 10px;
+  min-width: 0; /* allow children to shrink correctly inside */
+  background: linear-gradient(180deg, #fffaf0, #fbf3df);
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  position: relative;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+/* Ensure content doesn't overlap the accent bar */
+.md-typeset .vk-card__right, .md-typeset .vk-card__left { padding-left: 14px; }
+
+/* Left image column and placeholder sizing (flex-basis so it can wrap) */
+.md-typeset .vk-card__left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 122px; /* fixed basis but allowed to wrap to next line */
+  max-width: 122px;
+  box-sizing: border-box;
+}
+
+.md-typeset .vk-card__right {
+  /* right content grows and may shrink; min-width:0 for proper truncation */
+  flex: 1 1 0;
+  min-width: 0;
+}
+.md-typeset .vk-title {
+  margin: 0 0 8px 0;
+  font-size: 22px;
+  color: #213652;
+  letter-spacing: -0.2px;
+}
+.md-typeset .vk-sub {
+  margin: 0 0 12px 0;
+  color: #2f2f2f;
+  font-size: 14px;
+}
+
+.md-typeset .vk-small { color: #7b5b3b; font-size: 13px; }
+
+@media (max-width:680px){
+  .md-typeset .vk-card{ gap:14px }
+}
+
+@media (max-width:420px){
+  .md-typeset .vk-card{ gap:10px }
+}
+
+/* Make the vk-card more compact on small screens and allow the left column to wrap.
+   Reduce left column flex-basis, gaps, paddings, and font sizes so the stacked layout
+   looks balanced on narrow viewports. */
+@media (max-width:480px){
+  .md-typeset .vk-card-outer{ padding:6px }
+  .md-typeset .vk-card{ gap:12px; padding:8px }
+  .md-typeset .vk-card__left{ flex: 0 0 88px; max-width:88px }
+  .md-typeset .vk-card__right{ font-size: 0.95rem }
+  .md-typeset .vk-title{ font-size:18px }
+  .md-typeset .vk-sub{ font-size:13px }
+  .md-typeset .vk-letter{ padding-left:12px; font-size:14px }
+}
+
+@media (max-width:360px){
+  /* ultra-narrow: allow left column to be smaller when stacked */
+  .md-typeset .vk-card-outer{ padding:4px }
+  .md-typeset .vk-card{ gap:10px; padding:6px }
+  .md-typeset .vk-card__left{ flex: 0 0 72px; max-width:72px }
+  .md-typeset .vk-title{ font-size:16px }
+  .md-typeset .vk-sub{ font-size:12px }
+  .md-typeset .vk-letter{ padding-left:10px; font-size:13px }
+}
+
+[data-md-color-scheme="slate"] .md-typeset .vk-card{ background: #26282b; border-color: #4b3a2a; }
+[data-md-color-scheme="slate"] .md-typeset .vk-title{ color: #f3e9db; }
+[data-md-color-scheme="slate"] .md-typeset .vk-note{ background: #3b3430; border-color: #8a6a3a; color: #ffd7c8; }
+
+/* Make the vk-letter a full-width row inside the flex container vk-card */
+.md-typeset .vk-letter {
+  /* full-width row below the columns; when flex-wrap causes stacking this will naturally
+     appear after the columns. */
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  border-radius: 0;
+  background: transparent;
+  border: 0;
+  padding: 0px 0px 0px 18px; /* extra left padding to visually shift right */
+  color: #7a2b2b;
+  font-size: 15px;
+  line-height: 1.78;
+  align-self: stretch;
+}

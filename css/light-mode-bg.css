@@ -1,0 +1,12 @@
+/* Small site-level override to reduce the brightness of Material light mode.
+   Tweak --md-default-bg-color to taste. This file intentionally only changes theme variables
+   and is safe to remove if undesired. It is loaded after theme CSS via extra_css. */
+
+[data-md-color-scheme="default"] {
+  /* Softer warm-off-white that pairs with green accents used across site */
+  --md-default-bg-color: #f2f6f0; /* comfortable, low-contrast white */
+  --md-default-bg-color--light: #f2f6f03b;
+  --md-default-bg-color--lighter: #f2f6f04d;
+  /* subtle page surface shadow color for small UI elements */
+  --md-shadow-z1: 0 0.15rem 0.35rem rgba(16, 24, 18, 0.04);
+}
